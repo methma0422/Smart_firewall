@@ -1,0 +1,16 @@
+# Large datasets
+smart-firewall/data/*.csv
+
+# Trained ML models
+smart-firewall/model/*.pkl
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env

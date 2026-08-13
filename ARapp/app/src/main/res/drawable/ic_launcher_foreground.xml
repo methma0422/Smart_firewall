@@ -1,0 +1,72 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Shield Outline -->
+    <path
+        android:pathData="M 54,22 L 76,32 C 76,32 76,56 76,60 C 76,76 65,88 54,92 C 43,88 32,76 32,60 C 32,56 32,32 32,32 Z"
+        android:strokeWidth="3.2"
+        android:strokeColor="#D5F5E3"
+        android:fillColor="#00000000" />
+
+    <!-- Chevron at Top -->
+    <path
+        android:pathData="M 43,36 L 54,30 L 65,36"
+        android:strokeWidth="3.2"
+        android:strokeColor="#7FB3D5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000" />
+
+    <!-- Y-Shape Lines -->
+    <path
+        android:pathData="M 43,45 L 54,51 M 65,45 L 54,51 M 54,51 L 54,66"
+        android:strokeWidth="2.8"
+        android:strokeColor="#A9DFBF"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Left Node -->
+    <path
+        android:pathData="M 43,45 m -3.5,0 a 3.5,3.5 0 1,1 7,0 a 3.5,3.5 0 1,1 -7,0"
+        android:fillColor="#E5E7E9" />
+
+    <!-- Right Node -->
+    <path
+        android:pathData="M 65,45 m -3.5,0 a 3.5,3.5 0 1,1 7,0 a 3.5,3.5 0 1,1 -7,0"
+        android:fillColor="#E5E7E9" />
+
+    <!-- Center Hub Node -->
+    <path
+        android:pathData="M 54,51 m -2.5,0 a 2.5,2.5 0 1,1 5,0 a 2.5,2.5 0 1,1 -5,0"
+        android:fillColor="#E5E7E9" />
+
+    <!-- Green Node Glow -->
+    <path
+        android:pathData="M 54,66 m -11,0 a 11,11 0 1,1 22,0 a 11,11 0 1,1 -22,0"
+        android:fillColor="#152ECC71" />
+    <path
+        android:pathData="M 54,66 m -9,0 a 9,9 0 1,1 18,0 a 9,9 0 1,1 -18,0"
+        android:fillColor="#252ECC71" />
+
+    <!-- Green Node (Main) -->
+    <path
+        android:pathData="M 54,66 m -5.5,0 a 5.5,5.5 0 1,1 11,0 a 5.5,5.5 0 1,1 -11,0"
+        android:fillColor="#2ECC71"
+        android:strokeWidth="1.2"
+        android:strokeColor="#E5E7E9" />
+
+    <!-- Faint background stars/details matching the logo image -->
+    <path
+        android:pathData="M 18,22 m -1,0 a 1,1 0 1,1 2,0 a 1,1 0 1,1 -2,0"
+        android:fillColor="#2E4053" />
+    <path
+        android:pathData="M 91,28 m -1,0 a 1,1 0 1,1 2,0 a 1,1 0 1,1 -2,0"
+        android:fillColor="#2E4053" />
+    <path
+        android:pathData="M 93,82 m -1,0 a 1,1 0 1,1 2,0 a 1,1 0 1,1 -2,0"
+        android:fillColor="#2E4053" />
+
+</vector>
