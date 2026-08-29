@@ -127,14 +127,19 @@ def nodes():
         return []
 
 if __name__ == "__main__":
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    ssl_key = os.path.join(base_dir, "ssl_key.pem")
-    ssl_cert = os.path.join(base_dir, "ssl_cert.pem")
+    import sys
+    if getattr(sys, 'frozen', False):
+        exe_dir = os.path.dirname(sys.executable)
+    else:
+        exe_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        
+    ssl_key = os.path.join(exe_dir, "ssl_key.pem")
+    ssl_cert = os.path.join(exe_dir, "ssl_cert.pem")
     
     # Run securely over HTTPS using generated self-signed certificates
     if os.path.exists(ssl_key) and os.path.exists(ssl_cert):
         print("Launching secure API server over HTTPS...")
-        uvicorn.run("api:app", host="0.0.0.0", port=8000, ssl_keyfile=ssl_key, ssl_certfile=ssl_cert, reload=True)
+        uvicorn.run(app, host="0.0.0.0", port=8000, ssl_keyfile=ssl_key, ssl_certfile=ssl_cert, reload=False)
     else:
         print("SSL keys missing. Falling back to HTTP...")
-        uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
+        uvicorn.run(app, host="0.0.0.0", port=8000, reload=False)

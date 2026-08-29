@@ -14,3 +14,7 @@ venv/
 
 # Environment variables
 .env
+
+dist/
+build/
+*.spec

@@ -1,8 +1,15 @@
 import sqlite3
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE_DIR, "model", "threats.db")
+import sys
+
+if getattr(sys, 'frozen', False):
+    EXE_DIR = os.path.dirname(sys.executable)
+else:
+    EXE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+BASE_DIR = EXE_DIR
+DB_PATH = os.path.join(EXE_DIR, "model", "threats.db")
 
 import hashlib
 import bcrypt
