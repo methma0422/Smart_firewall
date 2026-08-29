@@ -4,8 +4,15 @@ import time
 import random
 import os
 
+import sys
+
 # ── LOAD ENV CONFIG ────────────────────────────────────────────
-env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
+if getattr(sys, 'frozen', False):
+    exe_dir = os.path.dirname(sys.executable)
+else:
+    exe_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+env_path = os.path.join(exe_dir, ".env")
 if os.path.exists(env_path):
     with open(env_path) as f:
         for line in f:
@@ -30,7 +37,7 @@ if w3.is_connected():
     print("Connected to Sepolia blockchain [OK]")
 else:
     print("Connection failed [FAIL]")
-    exit()
+    sys.exit(1)
 
 contract = w3.eth.contract(
     address=Web3.to_checksum_address(CONTRACT_ADDRESS),

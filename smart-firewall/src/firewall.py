@@ -8,9 +8,17 @@ from datetime import datetime
 from database import init_db, save_threat, mark_threat_on_chain
 from blockchain_logger import log_threat
 
-# Resolve absolute paths to model directory relative to the script location
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_DIR = os.path.join(BASE_DIR, "model")
+import sys
+from sklearn.ensemble import IsolationForest, RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+
+# Resolve absolute paths to model directory relative to the script location or PyInstaller bundle
+if getattr(sys, 'frozen', False):
+    BUNDLE_DIR = sys._MEIPASS
+else:
+    BUNDLE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MODEL_DIR = os.path.join(BUNDLE_DIR, "model")
 
 # ── 1. DEFINITION OF FEATURES ──────────────────────────────────
 BASE_FEATURES = [
@@ -44,7 +52,7 @@ try:
 except Exception as e:
     print(f"Error loading models: {e}")
     print("Please verify that all the PKL files are in the model/ folder.")
-    exit(1)
+    sys.exit(1)
 
 init_db()
 

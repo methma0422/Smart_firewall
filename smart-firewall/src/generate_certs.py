@@ -42,9 +42,14 @@ def generate_self_signed_cert():
     ).sign(private_key, hashes.SHA256())
     
     # Paths
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    key_path = os.path.join(base_dir, "ssl_key.pem")
-    cert_path = os.path.join(base_dir, "ssl_cert.pem")
+    import sys
+    if getattr(sys, 'frozen', False):
+        exe_dir = os.path.dirname(sys.executable)
+    else:
+        exe_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        
+    key_path = os.path.join(exe_dir, "ssl_key.pem")
+    cert_path = os.path.join(exe_dir, "ssl_cert.pem")
     
     # Write Private Key
     with open(key_path, "wb") as f:
